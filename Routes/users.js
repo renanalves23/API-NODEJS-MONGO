@@ -41,6 +41,8 @@ router.post('/create', (req,res) => {
         //como sei que só vou receber duas propriedades, posso fazer:
         Users.create(req.body, (err, data) => {
             if (err) return res.send({error: 'Erro ao criar usuário'});
+
+            data.password = undefined;
             return res.send(data);
         });
     });
